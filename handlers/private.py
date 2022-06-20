@@ -59,33 +59,33 @@ async def _human_time_duration(seconds):
 async def start_(client: Client, message: Message):
     await message.reply_sticker("CAACAgQAAxkBAAI8bmKIvgnlJyCrq9HIxSvCZCbm5CEjAAIaEAACpvFxHg-Z648-SCRWJAQ")
     await message.reply_text(
-        f"""**Merhaba {message.from_user.mention} 🎵\nBen {BOT_NAME}!\n
-● **Sesli sohbetlerde müzik çalabilen botum.**
+        f"""**مرحبا {message.from_user.mention} 🎵\nانا {BOT_NAME}!\n
+● **البوت الخاص بي الذي يمكنه تشغيل الموسيقى في الدردشات الصوتية.**
 
-● **Ban yetkisiz, Ses yönetimi yetkisi verip, Asistanı gruba ekleyiniz.**
+● ** الحظر غير المصرح به ، ومنح إذن إدارة المحادثه المرئية وإضافة المساعد إلى المجموعة.**
 """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕  Grubuna Ekle  ➕", 
+                        "➕اصفني الي مجموعتك➕", 
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🎙 Asistan", url=f"https://t.me/{ASSISTANT_NAME}"
+                        "🎙 الحساب المساعد", url=f"https://t.me/{ASSISTANT_NAME}"
                     ),
                     InlineKeyboardButton(
-                        "💬 Support", url=f"https://t.me/{SUPPORT_GROUP}"
+                        "💬 جروب الدعم", url=f"https://t.me/{SUPPORT_GROUP}"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "📚 Komutlar" , callback_data= "cbhelp"
+                        "📚 الاوامر" , callback_data= "cbhelp"
                     ),
                     InlineKeyboardButton(
-                        "📣 Kanal", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "📣 قناه المطور", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )
                 ]
                 
@@ -98,29 +98,29 @@ async def start_(client: Client, message: Message):
 async def gstart(_, message: Message):
     await message.reply_text(
         f"""**🧸 {BOT_NAME} Online**""",
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📣 Support", url=f"https://t.me/{SUPPORT_GROUP}")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📣 جروب الدعم", url=f"https://t.me/{SUPPORT_GROUP}")]])
     )
 
 @Client.on_message(filters.private & filters.incoming & filters.command(["help", f"help@{BOT_USERNAME}"]))
 async def bilgi(_, message: Message):
-      await message.reply_text(" ❗ Not:\n Botun aktif çalışması için şu dört yetkiye ihtiyaç vardır:\n- Mesaj silme yetkisi,\n- Bağlantı ile davet etme yetkisi,\n- Sesli sohbeti yönetme yetkisi.\n- Mesaj sabitleme yetkisi.", 
+      await message.reply_text("❗ ملاحظة:يلزم وجود الأذونات الأربعة التالية لكي يعمل الروبوت بنشاط:- صلاحية حذف الرسائل ،- صلاحية الدعوة عن طريق الرابط ،- صلاحية إدارة الدردشة الصوتية.- إذن تثبيت الرسالة.", 
       reply_markup=InlineKeyboardMarkup(
              [
                  [
                      InlineKeyboardButton(
-                         "🔓 Üye komutları", callback_data="herkes"), 
+                         "🔓 اوامر الاعضاء", callback_data="herkes"), 
 
                      InlineKeyboardButton(
-                         "🔐 Admin komutları", callback_data="admin")
+                         "🔐 اوامر الادمن", callback_data="admin")
                  ],[
                      InlineKeyboardButton(
-                         "🧙‍♂️ Sudo Kullanıcı Komutları", callback_data="sudo")
+                         "🧙‍♂️ اوامر المالك", callback_data="sudo")
                  ],[
                      InlineKeyboardButton(
-                         "Ana menü🏠", callback_data="cbstart")
+                         "🏠 القائمة الرئيسية", callback_data="cbstart")
                  ],[
                      InlineKeyboardButton(
-                         "🪐 Geliştirici", url=f"https://t.me/{OWNER_NAME}")
+                         "🪐 المطور", url=f"https://t.me/{OWNER_NAME}")
                  ]
              ]
          )
@@ -131,27 +131,29 @@ async def bilgi(_, message: Message):
 
 @Client.on_callback_query(filters.regex("cbhelp"))
 async def cbbilgi(_, query: CallbackQuery):
-    await query.edit_message_text(" ❗ Not:\nBotun aktif çalışması için şu dört yetkiye ihtiyaç vardır:\n- Mesaj silme yetkisi,\n- Bağlantı ile davet etme yetkisi,\n- Sesli sohbeti yönetme yetkisi.\n- Mesaj sabitleme yetkisi.", 
+    await query.edit_message_text(" ❗ ملاحظة: \n الامتيازات الأربعة التالية مطلوبة لكي يعمل الروبوت بفاعلية: \n- صلاحية حذف الرسائل ، \n- دعوة بواسطة سلطة الارتباط ، \n- صلاحية إدارة الدردشة الصوتية. \n- صلاحية تثبيت الرسائل.", 
+    reply_markup=InlineKeyboardMarkup(çalışması için şu dört yetkiye ihtiyaç vardır:\n- Mesaj silme yetkisi,\n- Bağlantı ile davet etme yetkisi,\n- Sesli sohbeti yönetme yetkisi.\n- Mesaj sabitleme yetkisi.", 
     reply_markup=InlineKeyboardMarkup(
+
       [
         [
           InlineKeyboardButton(
-            "🔓 Üye Komutları", callback_data ="herkes"), 
+            "🔓 اوامر الاعضاء", callback_data ="herkes"), 
           
           InlineKeyboardButton(
-            "🔐 Admin Komutları",callback_data ="admin")
+            "🔐 اوامر الادمن",callback_data ="admin")
         ],
         [
           InlineKeyboardButton(
-            "🧙‍♂️ Sudo Kullanıcısı Komutları",callback_data ="sudo")
+            "🧙‍♂️ اوامر المالك",callback_data ="sudo")
         ],
         [
           InlineKeyboardButton(
-            "🏠Ana Menü", callback_data="cbstart")
+            "🏠القائمه الرئيسية", callback_data="cbstart")
         ],
         [
           InlineKeyboardButton(
-            "🪐 Geliştirici", url=f"https://t.me/{OWNER_NAME}")
+            "🪐 المطور", url=f"https://t.me/{OWNER_NAME}")
         ]
       ]
      ))
@@ -159,16 +161,30 @@ async def cbbilgi(_, query: CallbackQuery):
 
 @Client.on_callback_query(filters.regex("herkes"))
 async def herkes(_, query: CallbackQuery):
-    await query.edit_message_text(f"""<b>Selam {query.from_user.mention}!\nBu botun herkes için komut menüsü 😉\n\n ▶️ /oynat - şarkı çalmak için youtube url'sine veya şarkı dosyasına yanıt verme\n ▶️ /oynat <song name> - istediğiniz şarkıyı çal\n 🔴 \n 🎵 /bul <song name> - istediğiniz şarkıları hızlı bir şekilde bulun\n 🎵 /vbul istediğiniz videoları hızlı bir şekilde bulun\n 🔍 /ara <query> - youtube'da ayrıntıları içeren videoları arama\n 🏓/ping bot ping durumunu kontrol eder\n\n</b>""",
+    await query.edit_message_text(f"""<b>Selam {query.from_user.mention}!قائمة الأوامر لهذا الروبوت للجميع 💕
+
+ ▶ ️ / play - الرد على رابط youtube أو ملف الأغنية لتشغيل الأغنية
+
+ ▶ ️ / play - قم بتشغيل الأغنية التي تريدها
+
+ 🔴
+
+ 🎵 / اعثر - اعثر بسرعة على الأغاني التي تريدها
+
+ 🎵 / vbull اعثر بسرعة على مقاطع الفيديو التي تريدها
+
+ 🔍 / بحث - البحث في youtube عن مقاطع الفيديو بالتفاصيل
+
+ 🏓 / ping bot يتحقق من حالة ping eder\n\n</b>""",
     reply_markup=InlineKeyboardMarkup(
              [
                  [
                      InlineKeyboardButton(
-                         "🪐 Geliştirici", url=f"https://t.me/{OWNER_NAME}")
+                         "🪐 المطور", url=f"https://t.me/{OWNER_NAME}")
                  ],
                  [
                      InlineKeyboardButton(
-                         "⬅️ Geri", callback_data="cbhelp")
+                         "⬅️ رجوع", callback_data="cbhelp")
                  ] 
              ]
          )
@@ -177,16 +193,30 @@ async def herkes(_, query: CallbackQuery):
 
 @Client.on_callback_query(filters.regex("admin"))
 async def admin(_, query: CallbackQuery):
-    await query.edit_message_text(f"""<b>Selam {query.from_user.mention}!\nBu botun adminler için komut menüsü 🤩\n\n ▶️ /devam - şarkı çalmaya devam et\n ⏸️ /durdur - çalan parçayı duraklatmak için\n 🔄 /atla- Sıraya alınmış müzik parçasını atlatır.\n ⏹ /son - müzik çalmayı durdurma\n 🔼 /ver botun sadece yönetici için kullanılabilir olan komutlarını kullanabilmesi için kullanıcıya yetki ver\n 🔽 /al botun yönetici komutlarını kullanabilen kullanıcının yetkisini al\n\n ⚪ /asistan - Müzik asistanı grubunuza katılır.\n\n</b>""",
+    await query.edit_message_text(f"""<b>Selam {query.from_user.mention}!قائمة الأوامر لهذا الروبوت للمسؤولين
+
+ ▶ ️ / تابع - استمر في تشغيل الأغنية
+
+ ⏸️ / stop - لإيقاف المسار الحالي مؤقتًا
+
+ 🔄 / تخطي- يتخطى المسار الموسيقي في قائمة الانتظار.
+
+ ⏹ / النهاية - إيقاف تشغيل الموسيقى
+
+ 🔼 / ver تخويل المستخدم حتى يتمكن الروبوت من استخدام الأوامر المتاحة فقط للمسؤول
+
+ 🔽 / al امنح المستخدم الذي يمكنه استخدام أوامر إدارة الروبوت
+
+ ⚪ / مساعد - ينضم مساعد الموسيقى إلى مجموعتك..\n\n</b>""",
     reply_markup=InlineKeyboardMarkup(
              [
                  [
                      InlineKeyboardButton(
-                         "🪐 Geliştirici", url=f"https://t.me/{OWNER_NAME}")
+                         "🪐 المطور", url=f"https://t.me/{OWNER_NAME}")
                  ],
                  [
                      InlineKeyboardButton(
-                         "⬅️ Geri", callback_data="cbhelp")
+                         "⬅️ رجوع", callback_data="cbhelp")
                  ] 
              ]
          )
@@ -196,16 +226,26 @@ async def admin(_, query: CallbackQuery):
 
 @Client.on_callback_query(filters.regex("sudo"))
 async def sudo(_, query: CallbackQuery):
-    await query.edit_message_text(f"""<b>Selam {query.from_user.mention}!\nBu botun sudo kullanıcısı için komut menüsü 👨‍💻\n\n » /broadcast =>  yayın yapmak ! \n » /broadcast_pin => yayını gruplarda sabitleme ! \n » /gban => küresel yasaklama ! \n » /ungban => küresel yasağı kaldırma ! \n » /alive => botun çalışma durumunu gösterir ! \n\n</b>""",
+    await query.edit_message_text(f"""<b>Selam {query.from_user.mention}!قائمة الأوامر للمالك لهذا الروبوت 👨‍💻
+
+ »/ بث => بث!
+
+ »/cast_pin => تثبيت البث في مجموعات!
+
+ »/ gban => حظر !
+
+ »/ ungban => رفع الحظر!
+
+ »/ alive => يظهر حالة عمل الروبوت! \n\n</b""",
     reply_markup=InlineKeyboardMarkup(
              [
                  [
                      InlineKeyboardButton(
-                         "🪐 Geliştirici", url=f"https://t.me/{OWNER_NAME}")
+                         "🪐 المطور", url=f"https://t.me/{OWNER_NAME}")
                  ],
                  [
                      InlineKeyboardButton(
-                         "⬅️ Geri", callback_data="cbhelp")
+                         "⬅️ رجوع", callback_data="cbhelp")
                  ] 
              ]
          )
@@ -227,24 +267,24 @@ async def cbstart(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "➕ Grubuna Ekle ➕",
+                        "➕اضفني الي مجموعتك➕",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🎙 Asistan", url=f"https://t.me/{ASSISTANT_NAME}"
+                        "🎙 الحساب المساعد", url=f"https://t.me/{ASSISTANT_NAME}"
                     ),
                     InlineKeyboardButton(
-                        "💬 Support", url=f"https://t.me/{SUPPORT_GROUP}"
+                        "💬 جروب الدعم", url=f"https://t.me/{SUPPORT_GROUP}"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "📚 Komutlar" , callback_data= "cbhelp"
+                        "📚 الاوامر" , callback_data= "cbhelp"
                     ),
                     InlineKeyboardButton(
-                        "📣 Kanal", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "📣 قناه المطور", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )
                 ]
                 
@@ -264,15 +304,15 @@ async def alive(c: Client, message: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📣 ᴅᴇsᴛᴇᴋ", url=f"https://t.me/{SUPPORT_GROUP}"),
+                InlineKeyboardButton("📣 جروب الدعم", url=f"https://t.me/{SUPPORT_GROUP}"),
                 InlineKeyboardButton(
-                    "🗯️ ʙɪʟɢɪ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    "🗯️ قناه المطور", url=f"https://t.me/{UPDATES_CHANNEL}"
                 ),
             ]
         ]
     )
 
-    alive = f"**• ᴍᴇʀʜᴀʙᴀ {message.from_user.mention()} {BOT_NAME}**\n\n🧑🏼‍💻 sᴀʜɪʙɪᴍ: [{ALIVE_NAME}](https://t.me/{OWNER_NAME})\n👾 ʙᴏᴛ ᴠᴇʀsɪᴏɴ: `v{__version__}`\n🔥 ᴘʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ: `{pyrover}`\n🐍 ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ: `{__python_version__}`\n✨ PʏTɢCᴀʟʟs ᴠᴇʀsɪᴏɴ: `{pytover.__version__}`\n🆙 ᴄᴀʟɪsᴍᴀ ᴅᴜʀᴜᴍᴜ: `{uptime}`\n\n❤ **Bᴇɴɪ ɢʀᴜʙᴀ ᴀʟᴅɪɢɪɴɪᴢ ɪᴄɪɴ ᴛᴇsᴇᴋᴋᴜʀʟᴇʀ . . !**"
+    alive = f"**• ᴍᴇʀʜᴀʙᴀ {message.from_user.mention()} {BOT_NAME}**\n\n🧑🏼‍💻 المطور: [{ALIVE_NAME}](https://t.me/{OWNER_NAME})\n👾 ʙᴏᴛ ᴠᴇʀsɪᴏɴ: `v{__version__}`\n🔥 ᴘʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ: `{pyrover}`\n🐍 ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ: `{__python_version__}`\n✨ PʏTɢCᴀʟʟs ᴠᴇʀsɪᴏɴ: `{pytover.__version__}`\n🆙 ᴄᴀʟɪsᴍᴀ ᴅᴜʀᴜᴍᴜ: `{uptime}`\n\n❤ **Bᴇɴɪ ɢʀᴜʙᴀ ᴀʟᴅɪɢɪɴɪᴢ ɪᴄɪɴ ᴛᴇsᴇᴋᴋᴜʀʟᴇʀ . . !**"
 
     await c.send_photo(
         chat_id,
