@@ -22,6 +22,6 @@ MONGODB_URL = getenv("MONGODB_URL", "mongodb+srv://hussein87:Hussein87@cluster0.
 PMPERMIT = getenv("PMPERMIT", "ENABLE")
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "120"))
 
-COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ !").split())
+COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "").split())
 
 SUDO_USERS = list(map(int, getenv("SUDO_USERS", "5191100896").split()))
