@@ -94,7 +94,7 @@ async def cls(_, query: CallbackQuery):
 
 # EfsaneMusicVaves düzenlenmiştir.
 
-@Client.on_message(command(["play", "oynat"]) 
+@Client.on_message(command(["play", "تشغيل"]) 
                    & filters.group
                    & ~filters.edited 
                    & ~filters.forwarded
