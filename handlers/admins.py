@@ -46,7 +46,7 @@ async def stop(_, message: Message):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("🙄 **Şu anda müzik çalmıyor**")
+        await message.reply_text("🙄 **لا يوجد اغاني حاليا يتم تشغيلها**")
     else:
         try:
             queues.clear(chat_id)
