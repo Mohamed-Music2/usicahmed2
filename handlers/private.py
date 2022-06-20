@@ -281,7 +281,7 @@ async def cbstart(_, query: CallbackQuery):
                 ],
                 [
                     InlineKeyboardButton(
-                        "📚 الاوامر" , callback_data= ""
+                        "📚 الاوامر" , callback_data= "cbhelp"
                     ),
                     InlineKeyboardButton(
                         "📣 قناه المطور", url=f"https://t.me/{UPDATES_CHANNEL}"
