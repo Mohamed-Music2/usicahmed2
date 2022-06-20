@@ -101,7 +101,7 @@ async def cls(_, query: CallbackQuery):
                    & ~filters.via_bot)
 async def play(_, message: Message):
 
-    lel = await message.reply("🔄 **ʟüᴛꜰᴇɴ ʙᴇᴋʟᴇʏiɴiᴢ...**")
+    lel = await message.reply("❤️‍🔥🤸‍♂️ **جاري التشغيل يرجي الانتظار**")
     
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
@@ -198,10 +198,10 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📚 Bilgi", url=f"https://t.me/{BOT_USERNAME}?start"),
-                InlineKeyboardButton("📣 Kanal", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                InlineKeyboardButton("🥇 المطور", url=f"https://t.me/lMl4ll"),
+                InlineKeyboardButton("🥇 قناه المطور", url=f"https://t.me/{UPDATES_CHANNEL}"),
             ],[
-                InlineKeyboardButton("🗑 Kapat", callback_data="cls"),
+                InlineKeyboardButton("🗑 اغلاق", callback_data="cls"),
             ],
         ]
     )
@@ -228,11 +228,11 @@ async def play(_, message: Message):
         file_path = await converter.convert(youtube.download(url))
     else:
         if len(message.command) < 2:
-            return await lel.edit("🤔 **Dinlemek istediğin şarkı nedir?**")
+            return await lel.edit("❤️‍🔥 **يرجي اعطاء شئ للبحث او الرد علي ملف صوتي**")
         await lel.edit("🔎 **Lütfen bekleyiniz...**")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit("🔄 **Ses İşleniyor..🔥**")
+        await lel.edit("🤸‍♂️❤️‍🔥 **جاري التشغيل**")
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -263,10 +263,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📚 Bilgi", url=f"https://t.me/{BOT_USERNAME}?start"),
-                InlineKeyboardButton("📣 Kanal", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                InlineKeyboardButton("🥇 المطور", url=f"https://t.me/lMl4ll"),
+                InlineKeyboardButton("🥇 قناه المطور", url=f"https://t.me/{UPDATES_CHANNEL}"),
             ],[
-                InlineKeyboardButton("🗑 Kapat", callback_data="cls"),
+                InlineKeyboardButton("🗑 اغلاق", callback_data="cls"),
             ],
         ]
     )
@@ -286,7 +286,7 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
         photo="final.png",
-        caption="**🎵 şᴀʀᴋɪ:** {}\n**🕒 ꜱüʀᴇ:** {} min\n**👉 ᴇᴋʟᴇʏᴇɴ:** {}\n\n**🚧 Parça Konumu:** {}".format(
+        caption="**🎵 التشغيل:** {}\n**🕒 المدة:** {} min\n**👉 طلب من:** {}\n\n**🚧 Parça Konumu:** {}".format(
         title, duration, message.from_user.mention(), position
         ),
         reply_markup=keyboard)
@@ -306,7 +306,7 @@ async def play(_, message: Message):
         await message.reply_photo(
         photo="final.png",
         reply_markup=keyboard,
-        caption="**🎵 şᴀʀᴋɪ:** {}\n**🕒 ꜱüʀᴇ:** {} min\n**👉 ᴇᴋʟᴇʏᴇɴ:** {}\n\n**☑️ Şimdi şu anda `{}`...**".format(
+        caption="**🎵 التشغيل:** {}\n**🕒 المدة:** {} min\n**👉 طلب من:** {}\n\n**☑️ Şimdi şu anda `{}`...**".format(
         title, duration, message.from_user.mention(), message.chat.title
         ), )
         os.remove("final.png")
