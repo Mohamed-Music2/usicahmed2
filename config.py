@@ -20,7 +20,7 @@ OWNER_NAME = getenv("OWNER_NAME", "lMl4ll")
 ALIVE_NAME = getenv("ALIVE_NAME", "lMl4ll_MUSIC")
 MONGODB_URL = getenv("MONGODB_URL", "mongodb+srv://hussein87:Hussein87@cluster0.wynpz.mongodb.net/?retryWrites=true&w=majority")
 PMPERMIT = getenv("PMPERMIT", "ENABLE")
-DURATION_LIMIT = int(getenv("DURATION_LIMIT", "10"))
+DURATION_LIMIT = int(getenv("DURATION_LIMIT", "120"))
 
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ !").split())
 
